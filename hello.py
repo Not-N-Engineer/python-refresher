@@ -1,4 +1,4 @@
-# import numpy as np
+import numpy as np
 
 
 def hello():
@@ -40,20 +40,20 @@ def div(a, b):
 #     return np.exp(a)
 
 
-# def sin(a):
-#     return np.sin(a)
+def sin(a):
+    return np.sin(a)
 
 
-# def cos(a):
-#     return np.cos(a)
+def cos(a):
+    return np.cos(a)
 
 
-# def tan(a):
-#     return np.tan(a)
+def tan(a):
+    return np.tan(a)
 
 
-# def cot(a):
-#     return 1 / np.tan(a)
+def cot(a):
+    return 1 / np.tan(a)
 
 
 def __main__():

@@ -29,6 +29,26 @@ class TestHello(unittest.TestCase):
         with pytest.raises(ValueError, match="Can't divide by zero!"):
             hello.div(5, 0)               # Test division by zero
 
+    def test_sqrt(self):
+        assert hello.sqrt(2) == np.sqrt(2)
+        assert hello.sqrt(520.3) == np.sqrt(520.3)
+        assert hello.sqrt(0) == np.sqrt(0)
+    
+    def test_power(self):
+        assert hello.power(2, 2) == np.power(2, 2)
+        assert hello.power(2, 2.5) == np.power(2, 2.5)
+        assert hello.power(2.5, 2) == np.power(2.5, 2)
+    
+    def test_log(self):
+        assert hello.log(2) == np.log(2)
+        assert hello.log(2.5) == np.log(2.5)
+        assert hello.log(2123) == np.log(2123)
+    
+    def test_exp(self):
+        assert hello.exp(2) == np.exp(2)
+        assert hello.exp(2.5) == np.exp(2.5)
+        assert hello.exp(np.log(2)) == 2
+
     def test_sin(self):
         self.assertEqual(hello.sin(0), 0)
         self.assertEqual(hello.sin(1), 0.8414709848078965)

@@ -24,20 +24,20 @@ def div(a, b):
     return a / b
 
 
-# def sqrt(a):
-#     return np.sqrt(a)
+def sqrt(a):
+    return np.sqrt(a)
 
 
-# def power(a, b):
-#     return np.power(a, b)
+def power(a, b):
+    return np.power(a, b)
 
 
-# def log(a):
-#     return np.log(a)
+def log(a):
+    return np.log(a)
 
 
-# def exp(a):
-#     return np.exp(a)
+def exp(a):
+    return np.exp(a)
 
 
 def sin(a):

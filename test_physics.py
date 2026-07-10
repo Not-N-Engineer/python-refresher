@@ -1,6 +1,7 @@
 import unittest
 import physics as p 
 import numpy as np
+import numpy.testing as npt
 
 
 class TestAUVPhysics(unittest.TestCase):
@@ -103,6 +104,21 @@ class TestAUV2(unittest.TestCase):
     def test_calculate_AUV2_angular_acceleration(self):
         result = p.AUV2.calculate_auv2_angular_acceleration(np.array([1.0, 2.0, 3.0, 4.0]), 0.5, 1.0, 1.0)
         self.assertIsInstance(result, np.float64)
+    
+    
+    def test_calculate_auv2_acceleration(self):
+        testTorque = [12.3, 32.5, 20, 8.4]
+        npt.assert_array_almost_equal(p.AUV2.calculate_auv2_acceleration(testTorque, 0, np.pi/4, 15),[0.7731034, 0.7731034],  decimal = 7)
+        npt.assert_array_almost_equal(p.AUV2.calculate_auv2_acceleration(testTorque, np.pi/4 , np.pi/4, 15),[1.6066667, -0.5133333],  decimal = 7)
+        testTorque1 = [-13.2, 12.76, 10, -18.4]
+        npt.assert_array_almost_equal(p.AUV2.calculate_auv2_acceleration(testTorque1, np.pi/5 , np.pi/3, 15),[2.0594091, -0.6932663],  decimal = 7)
+
+    def test_calculate_auv2_angular_acceleration(self):
+        testTorque = [12.3, 32.5, 20, 8.4]
+        self.assertAlmostEqual(p.AUV2.calculate_auv2_angular_acceleration(testTorque, np.pi/4, 0.5, 0.3, 12.27), -0.3964869,  places = 7)
+        self.assertAlmostEqual(p.AUV2.calculate_auv2_angular_acceleration(testTorque, 2.6011732, 0.5, 0.3, 12.27), 0,  places = 7)
+        testTorque1 = [12.27, 3.27, 3.8, 5.15]
+        self.assertAlmostEqual(p.AUV2.calculate_auv2_angular_acceleration(testTorque1, 1.09, 0.516, 0.3, 12.27), 0.3717421,  places = 7)
 
 
 if __name__ == "__main__":
